@@ -1,0 +1,25 @@
+name: default flow
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+      branches:
+      - master
+
+jobs:
+  build:
+    name: default build job
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: install dependencies
+        run: sudo .install/install_script.sh
+      - name: check format
+        run: ./check-format.sh
+      - name: unit tests
+        run: ./run_cpp_tests.sh
+      - name: valgrind
+        run: ./valgrind.sh
