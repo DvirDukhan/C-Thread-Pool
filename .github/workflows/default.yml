@@ -22,4 +22,4 @@ jobs:
       - name: unit tests
         run: ./run_cpp_tests.sh
       - name: valgrind
-        run: ./valdrind.sh
+        run: ./valgrind.sh
